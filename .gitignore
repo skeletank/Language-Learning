@@ -1,4 +1,5 @@
 *.suo
 *.lnk
-*/Debug/*
+*/bin/*
+*/obj/*
 *.suo
