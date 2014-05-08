@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="LanguageLearning" Class="LanguageLearningDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\LanguageLearning.mdf;Integrated Security=True" SettingsObjectName="MRB.LanguageLearning.Data.Properties.Settings" SettingsPropertyName="LanguageLearningConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Conjugation" Member="Conjugations">
+    <Type Name="Conjugation">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Present_1stPerson_Singular_Active_Ending" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Present_1stPerson_Plural_Active_Ending" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Present_2ndPerson_Singular_Active_Ending" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Present_2ndPerson_Plural_Active_Ending" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Present_3rdPerson_Singular_Active_Ending" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Present_3rdPerson_Plural_Active_Ending" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Association Name="Conjugation_Verb_Regular" Member="Verb_Regulars" ThisKey="Id" OtherKey="ConjugationFK" Type="Verb_Regular" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Verb_Regular" Member="Verb_Regulars">
+    <Type Name="Verb_Regular">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Infinitive" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="EnglishDefinition" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Root" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ConjugationFK" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Conjugation_Verb_Regular" Member="Conjugation" ThisKey="ConjugationFK" OtherKey="Id" Type="Conjugation" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

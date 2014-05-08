@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="LanguageLearning">
+  <DataContextMoniker Name="/LanguageLearningDataContext" />
+  <nestedChildShapes>
+    <classShape Id="e5410579-3185-4710-a7b4-e343914e5021" absoluteBounds="3.25, 1.375, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/LanguageLearningDataContext/Conjugation" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c5da3c7d-b4fe-4ad2-9604-f641cd92c019" absoluteBounds="3.265, 1.835, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9f4ccfc9-6506-4c37-b3cb-a5dc8ac481dc" absoluteBounds="4.75, 4.625, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/LanguageLearningDataContext/Verb_Regular" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4ad6b884-812a-41c6-a9cb-570db0631a7a" absoluteBounds="4.765, 5.085, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5 : 3.72280110677083); (5 : 4.625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LanguageLearningDataContext/Conjugation/Conjugation_Verb_Regular" />
+      <nodes>
+        <classShapeMoniker Id="e5410579-3185-4710-a7b4-e343914e5021" />
+        <classShapeMoniker Id="9f4ccfc9-6506-4c37-b3cb-a5dc8ac481dc" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
