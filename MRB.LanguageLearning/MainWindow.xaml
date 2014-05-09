@@ -8,16 +8,36 @@
                 <Grid Background="#FFE5E5E5">
                     <Label x:Name="GivenVerbLabel" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Width="233" FontSize="20" Margin="10,10,244,221"/>
                     <TextBox x:Name="GuessVerbTextBox" HorizontalAlignment="Left" Height="36" Margin="10,52,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="233" FontSize="20"/>
-                    <Button x:Name="NewVerbButton" Content="New Verb" HorizontalAlignment="Left" Margin="10,236,0,0" VerticalAlignment="Top" Width="75" Click="NewVerbButton_Click"/>
-                    <Button x:Name="VerifyVerbButton" Content="Verify" HorizontalAlignment="Left" Margin="402,236,0,0" VerticalAlignment="Top" Width="75" Click="VerifyVerbButton_Click"/>
-                    <Button x:Name="ShowCorrectAnswerButton" Content="Show Correct Answer" HorizontalAlignment="Left" Margin="271,236,0,0" VerticalAlignment="Top" Width="126" Click="ShowCorrectAnswerButton_Click"/>
+                    <Button x:Name="NewVerbButton" Content="New Verb" HorizontalAlignment="Left" Margin="10,236,0,0" VerticalAlignment="Top" Width="75" Click="Vocab_NewVerbButton_Click"/>
+                    <Button x:Name="Vocab_VerifyVerbButton" Content="Verify" HorizontalAlignment="Left" Margin="402,236,0,0" VerticalAlignment="Top" Width="75" Click="Vocab_VerifyVerbButton_Click"/>
+                    <Button x:Name="Vocab_ShowCorrectAnswerButton" Content="Show Correct Answer" HorizontalAlignment="Left" Margin="271,236,0,0" VerticalAlignment="Top" Width="126" Click="Vocab_ShowCorrectAnswerButton_Click"/>
                     <Label x:Name="ScoreLabel" Content="Score:" HorizontalAlignment="Left" Margin="350,10,0,0" VerticalAlignment="Top" Width="47"/>
-                    <Button x:Name="ResetScoreButton" Content="Reset" HorizontalAlignment="Left" Margin="402,41,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.467,-0.364" Click="ResetScoreButton_Click"/>
+                    <Button x:Name="ResetScoreButton" Content="Reset" HorizontalAlignment="Left" Margin="402,41,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.467,-0.364" Click="Vocab_ResetScoreButton_Click"/>
                     <Label x:Name="ScoreValueLabel" Content="" HorizontalAlignment="Left" Margin="402,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.868,0" Width="75"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Conjugation">
-                <Grid Background="#FFE5E5E5"/>
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="33*"/>
+                        <ColumnDefinition Width="454*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label x:Name="VerbToConjugateLabel" Content="" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="233" Grid.ColumnSpan="2" Height="37" FontSize="20"/>
+                    <Label x:Name="SingularLabel" Content="Singular" HorizontalAlignment="Left" Margin="114,66,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.526,-0.462" Width="157" Grid.Column="1"/>
+                    <Label x:Name="PluralLabel" Content="Plural" HorizontalAlignment="Left" Margin="276,66,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.526,-0.462" Width="168" Grid.Column="1"/>
+                    <Label x:Name="FirstPersonLabel" Content="1st Person" HorizontalAlignment="Left" Margin="10,91,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.526,-0.462" Width="139" Grid.ColumnSpan="2"/>
+                    <Label x:Name="SecondPersonLabel" Content="2nd Person" HorizontalAlignment="Left" Margin="10,122,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.526,-0.462" Width="139" Grid.ColumnSpan="2"/>
+                    <Label x:Name="ThirdPersonLabel" Content="3rd Person" HorizontalAlignment="Left" Margin="10,153,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.526,-0.462" Width="139" Grid.ColumnSpan="2"/>
+                    <TextBox x:Name="FirstPersonSingularTextBox" HorizontalAlignment="Left" Height="23" Margin="114,97,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="157" Grid.Column="1"/>
+                    <TextBox x:Name="SecondPersonSingularTextBox" HorizontalAlignment="Left" Height="23" Margin="114,125,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="157" Grid.Column="1"/>
+                    <TextBox x:Name="ThirdPersonSingularTextBox" HorizontalAlignment="Left" Height="23" Margin="114,153,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="157" Grid.Column="1"/>
+                    <TextBox x:Name="FirstPersonPluralTextBox" HorizontalAlignment="Left" Height="23" Margin="276,97,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" Grid.Column="1"/>
+                    <TextBox x:Name="SecondPersonPluralTextBox" HorizontalAlignment="Left" Height="23" Margin="276,125,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" Grid.Column="1"/>
+                    <TextBox x:Name="ThirdPersonPluralTextBox" HorizontalAlignment="Left" Height="23" Margin="276,153,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" Grid.Column="1"/>
+                    <Button x:Name="Conjugation_NewVerbButton" Content="New Verb" HorizontalAlignment="Left" Margin="10,236,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2" Click="Conjugation_NewVerbButton_Click"/>
+                    <Button x:Name="Conjugation_VerifyVerbButton" Content="Verify" HorizontalAlignment="Left" Margin="369,236,0,0" VerticalAlignment="Top" Width="75" Grid.Column="1" Click="Conjugation_VerifyVerbButton_Click"/>
+                    <Button x:Name="Conjugation_ShowCorrectAnswerButton" Content="Show Correct Answer" HorizontalAlignment="Left" Margin="238,236,0,0" VerticalAlignment="Top" Width="126" Grid.Column="1" Click="Conjugation_ShowCorrectAnswerButton_Click"/>
+                </Grid>
             </TabItem>
         </TabControl>
 
