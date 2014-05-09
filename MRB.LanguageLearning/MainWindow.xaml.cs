@@ -197,6 +197,7 @@ namespace MRB.LanguageLearning
             ThirdPersonPluralTextBox.Foreground = Brushes.Black;
 
             VerbToConjugateLabel.Content = _conjugation_CurrentVerb.Infinitive;
+            RootOfVerbToConjugateLabel.Content = _conjugation_CurrentVerb.Conjugation.Name;
         }
 
         #endregion
