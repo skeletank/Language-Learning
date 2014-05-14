@@ -24,10 +24,7 @@ namespace MRB.LanguageLearning
         #region Fields
 
         private DatabaseController _databaseController = new DatabaseController();
-        private Verb_Regular _vocab_CurrentVerb;
         private Verb_Regular _conjugation_CurrentVerb;
-        private int _questionsAsked = 0;
-        private int _questionsCorrect = 0;
 
         #endregion
 
@@ -37,41 +34,12 @@ namespace MRB.LanguageLearning
         {
             InitializeComponent();
 
-            Vocab_ResetWithNewVerb();
             Conjugation_ResetWithNewVerb();
         }
 
         #endregion
 
         #region Event Handlers
-
-        private void Vocab_NewVerbButton_Click(object sender, RoutedEventArgs e)
-        {
-            Vocab_ResetWithNewVerb();
-        }
-
-        private void Vocab_ShowCorrectAnswerButton_Click(object sender, RoutedEventArgs e)
-        {
-            GuessVerbTextBox.Foreground = Brushes.Blue;
-            GuessVerbTextBox.Text = _vocab_CurrentVerb.EnglishDefinition;
-        }
-
-        private void Vocab_VerifyVerbButton_Click(object sender, RoutedEventArgs e)
-        {
-            bool isCorrect = String.Compare(_vocab_CurrentVerb.EnglishDefinition, GuessVerbTextBox.Text, true) == 0;
-
-            if (isCorrect)
-                GuessVerbTextBox.Foreground = Brushes.Green;
-            else
-                GuessVerbTextBox.Foreground = Brushes.Red;
-
-            Vocab_UpdateScore(isCorrect);
-        }
-
-        private void Vocab_ResetScoreButton_Click(object sender, RoutedEventArgs e)
-        {
-            ScoreValueLabel.Content = String.Empty;
-        }
 
         private void Conjugation_NewVerbButton_Click(object sender, RoutedEventArgs e)
         {
@@ -153,26 +121,6 @@ namespace MRB.LanguageLearning
         #endregion
 
         #region Methods
-
-        private void Vocab_UpdateScore(bool isCorrect)
-        {
-            if (isCorrect)
-                _questionsCorrect++;
-
-            _questionsAsked++;
-
-            ScoreValueLabel.Content = String.Format("{0} of {1}", _questionsCorrect, _questionsAsked);
-        }
-
-        private void Vocab_ResetWithNewVerb()
-        {
-            _vocab_CurrentVerb = _databaseController.GetRandomVerb();
-
-            GuessVerbTextBox.Text = String.Empty;
-            GuessVerbTextBox.Foreground = Brushes.Black;
-
-            GivenVerbLabel.Content = _vocab_CurrentVerb.Infinitive;
-        }
 
         private void Conjugation_ResetWithNewVerb()
         {
