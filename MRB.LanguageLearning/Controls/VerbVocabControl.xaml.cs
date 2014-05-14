@@ -26,7 +26,7 @@ namespace MRB.LanguageLearning.Controls
 
         private DatabaseController _databaseController = new DatabaseController();
 
-        private Verb_Regular _vocab_CurrentVerb;
+        private Verb_Regular _currentVerb;
 
         private int _questionsAsked = 0;
         private int _questionsCorrect = 0;
@@ -55,12 +55,12 @@ namespace MRB.LanguageLearning.Controls
         private void ShowCorrectAnswerButton_Click(object sender, RoutedEventArgs e)
         {
             GuessVerbTextBox.Foreground = Brushes.Blue;
-            GuessVerbTextBox.Text = _vocab_CurrentVerb.EnglishDefinition;
+            GuessVerbTextBox.Text = _currentVerb.EnglishDefinition;
         }
 
         private void VerifyVerbButton_Click(object sender, RoutedEventArgs e)
         {
-            bool isCorrect = String.Compare(_vocab_CurrentVerb.EnglishDefinition, GuessVerbTextBox.Text, true) == 0;
+            bool isCorrect = String.Compare(_currentVerb.EnglishDefinition, GuessVerbTextBox.Text, true) == 0;
 
             if (isCorrect)
                 GuessVerbTextBox.Foreground = Brushes.Green;
@@ -91,12 +91,12 @@ namespace MRB.LanguageLearning.Controls
 
         private void ResetWithNewVerb()
         {
-            _vocab_CurrentVerb = _databaseController.GetRandomVerb();
+            _currentVerb = _databaseController.GetRandomVerb();
 
             GuessVerbTextBox.Text = String.Empty;
             GuessVerbTextBox.Foreground = Brushes.Black;
 
-            GivenVerbLabel.Content = _vocab_CurrentVerb.Infinitive;
+            GivenVerbLabel.Content = _currentVerb.Infinitive;
         }
 
         #endregion
