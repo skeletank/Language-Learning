@@ -1,9 +1,9 @@
 ﻿<Window xmlns:Controls="clr-namespace:MRB.LanguageLearning.Controls"  x:Class="MRB.LanguageLearning.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MRB Language Learning - Latin" Height="350" Width="525">
+        Title="MRB Language Learning - Latin" Height="350" Width="512">
     <Grid>
-        <TabControl HorizontalAlignment="Left" Height="300" VerticalAlignment="Top" Width="497" Margin="10,10,0,0">
+        <TabControl HorizontalAlignment="Left" Height="300" VerticalAlignment="Top" Width="486" Margin="10,10,0,0">
             <TabItem Header="Verb Vocab">
                 <Grid Background="#FFE5E5E5">
                     <Controls:VerbVocabControl />
