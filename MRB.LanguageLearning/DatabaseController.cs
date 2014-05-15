@@ -27,14 +27,22 @@ namespace MRB.LanguageLearning
 
         #region Methods
 
-        public Verb_Regular GetRandomVerb()
+        public Verb_Regular GetRandomVerb(int? conjugationId = null)
         {
-            Table<Verb_Regular> regularVerbs = _dataContext.Verb_Regulars;
+            IQueryable<Verb_Regular> regularVerbs = _dataContext.Verb_Regulars;
+
+            if (conjugationId != null)
+                regularVerbs = regularVerbs.Where(rv => rv.ConjugationFK == conjugationId);
 
             Random random = new Random();
             int randomVerbIndex = random.Next(regularVerbs.Count());
 
             return regularVerbs.Skip(randomVerbIndex).FirstOrDefault();
+        }
+
+        public IEnumerable<Conjugation> GetAllConjugations()
+        {
+            return _dataContext.Conjugations;
         }
 
         #endregion

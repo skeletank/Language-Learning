@@ -6,13 +6,15 @@
              mc:Ignorable="d" 
              d:DesignHeight="270" d:DesignWidth="475">
     <Grid>
-        <Label x:Name="GivenVerbLabel" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Width="233" FontSize="20" Margin="10,10,244,221"/>
-        <TextBox x:Name="GuessVerbTextBox" HorizontalAlignment="Left" Height="36" Margin="10,52,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="233" FontSize="20"/>
+        <Label x:Name="GivenVerbLabel" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Width="233" FontSize="20" Margin="10,60,232,157" Height="53"/>
+        <TextBox x:Name="GuessVerbTextBox" HorizontalAlignment="Left" Height="36" Margin="10,118,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="233" FontSize="20"/>
         <Button x:Name="NewVerbButton" Content="New Verb" HorizontalAlignment="Left" Margin="10,236,0,0" VerticalAlignment="Top" Width="75" Click="NewVerbButton_Click"/>
         <Button x:Name="VerifyVerbButton" Content="Verify" HorizontalAlignment="Left" Margin="390,236,0,0" VerticalAlignment="Top" Width="75" Click="VerifyVerbButton_Click"/>
         <Button x:Name="ShowCorrectAnswerButton" Content="Show Correct Answer" HorizontalAlignment="Left" Margin="259,236,0,0" VerticalAlignment="Top" Width="126" Click="ShowCorrectAnswerButton_Click"/>
         <Label x:Name="ScoreLabel" Content="Score:" HorizontalAlignment="Left" Margin="338,10,0,0" VerticalAlignment="Top" Width="47"/>
         <Button x:Name="ResetScoreButton" Content="Reset" HorizontalAlignment="Left" Margin="390,41,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.467,-0.364" Click="ResetScoreButton_Click"/>
         <Label x:Name="ScoreValueLabel" Content="" HorizontalAlignment="Left" Margin="390,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.868,0" Width="75"/>
+        <Label x:Name="ConjugationLabel" Content="Conjugation" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="ConjugationComboBox" HorizontalAlignment="Left" Margin="90,14,0,0" VerticalAlignment="Top" Width="153" SelectionChanged="ConjugationComboBox_SelectionChanged" />
     </Grid>
 </UserControl>

@@ -40,7 +40,14 @@ namespace MRB.LanguageLearning.Controls
             InitializeComponent();
 
             if (!DesignerProperties.GetIsInDesignMode(this))
+            {
+                ConjugationComboBox.ItemsSource = _databaseController.GetAllConjugations();
+                ConjugationComboBox.DisplayMemberPath = "Name";
+
+                ConjugationComboBox.SelectedIndex = 0;
+
                 ResetWithNewVerb();
+            }
         }
 
         #endregion
@@ -75,6 +82,11 @@ namespace MRB.LanguageLearning.Controls
             ScoreValueLabel.Content = String.Empty;
         }
 
+        private void ConjugationComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ResetWithNewVerb();
+        }
+
         #endregion
 
         #region Methods
@@ -91,7 +103,9 @@ namespace MRB.LanguageLearning.Controls
 
         private void ResetWithNewVerb()
         {
-            _currentVerb = _databaseController.GetRandomVerb();
+            Conjugation selectedConjugation = (Conjugation)ConjugationComboBox.SelectedItem;
+
+            _currentVerb = _databaseController.GetRandomVerb(selectedConjugation.Id);
 
             GuessVerbTextBox.Text = String.Empty;
             GuessVerbTextBox.Foreground = Brushes.Black;
