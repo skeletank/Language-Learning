@@ -74,7 +74,7 @@ namespace MRB.LanguageLearning.Controls
             else
                 GuessVerbTextBox.Foreground = Brushes.Red;
 
-            UpdateScore(isCorrect);
+            UpdateScore(_currentVerb, isCorrect);
         }
 
         private void ResetScoreButton_Click(object sender, RoutedEventArgs e)
@@ -91,10 +91,14 @@ namespace MRB.LanguageLearning.Controls
 
         #region Methods
 
-        private void UpdateScore(bool isCorrect)
+        private void UpdateScore(Verb_Regular verb, bool isCorrect)
         {
+            _databaseController.UpdateVerbSuccessRate(verb, isCorrect);
+
             if (isCorrect)
+            {
                 _questionsCorrect++;
+            }
 
             _questionsAsked++;
 
