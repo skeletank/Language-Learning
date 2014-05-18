@@ -56,13 +56,10 @@ namespace MRB.LanguageLearning.Controls
 
         private void NewVerbButton_Click(object sender, RoutedEventArgs e)
         {
-            ResetWithNewVerb();
-        }
+            CorrectVerbLabel.Content = String.Empty;
+            VerifyVerbButton.IsEnabled = true;
 
-        private void ShowCorrectAnswerButton_Click(object sender, RoutedEventArgs e)
-        {
-            GuessVerbTextBox.Foreground = Brushes.Blue;
-            GuessVerbTextBox.Text = _currentVerb.EnglishDefinition;
+            ResetWithNewVerb();
         }
 
         private void VerifyVerbButton_Click(object sender, RoutedEventArgs e)
@@ -75,6 +72,10 @@ namespace MRB.LanguageLearning.Controls
                 GuessVerbTextBox.Foreground = Brushes.Red;
 
             UpdateScore(_currentVerb, isCorrect);
+
+            CorrectVerbLabel.Content = _currentVerb.EnglishDefinition;
+
+            VerifyVerbButton.IsEnabled = false;
         }
 
         private void ResetScoreButton_Click(object sender, RoutedEventArgs e)
