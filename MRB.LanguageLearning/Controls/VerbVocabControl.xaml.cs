@@ -45,7 +45,6 @@ namespace MRB.LanguageLearning.Controls
       {
         ConjugationComboBox.ItemsSource = _databaseController.GetAllConjugations();
         ConjugationComboBox.DisplayMemberPath = "Name";
-
         ConjugationComboBox.SelectedIndex = 0;
 
         ResetWithNewVerb();

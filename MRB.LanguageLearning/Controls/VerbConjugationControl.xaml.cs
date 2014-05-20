@@ -85,7 +85,7 @@ namespace MRB.LanguageLearning.Controls
 
         private void ResetWithNewVerb()
         {
-            _currentVerb = _databaseController.GetRandomVerb();
+            _currentVerb = _databaseController.GetRandomVerb(-1);
 
             FirstPersonSingularTextBox.Text = String.Empty;
             FirstPersonSingularTextBox.Foreground = Brushes.Black;

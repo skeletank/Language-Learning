@@ -56,6 +56,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LanguageLearning.cs">
+      <DependentUpon>LanguageLearning.dbml</DependentUpon>
+    </Compile>
     <Compile Include="LanguageLearning.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
