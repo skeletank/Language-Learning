@@ -56,10 +56,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controls\NounVocabControl.xaml.cs">
+      <DependentUpon>NounVocabControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Utility\NounStatistics.cs" />
     <Compile Include="Utility\VerbStatistics.cs" />
     <Page Include="Controls\VerbConjugationControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\NounVocabControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Controls\VerbVocabControl.xaml">
       <SubType>Designer</SubType>

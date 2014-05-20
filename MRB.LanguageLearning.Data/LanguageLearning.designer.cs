@@ -36,6 +36,12 @@ namespace MRB.LanguageLearning.Data
     partial void InsertVerb_Regular(Verb_Regular instance);
     partial void UpdateVerb_Regular(Verb_Regular instance);
     partial void DeleteVerb_Regular(Verb_Regular instance);
+    partial void InsertDeclension(Declension instance);
+    partial void UpdateDeclension(Declension instance);
+    partial void DeleteDeclension(Declension instance);
+    partial void InsertNoun_Regular(Noun_Regular instance);
+    partial void UpdateNoun_Regular(Noun_Regular instance);
+    partial void DeleteNoun_Regular(Noun_Regular instance);
     #endregion
 		
 		public LanguageLearningDataContext() : 
@@ -81,6 +87,22 @@ namespace MRB.LanguageLearning.Data
 			get
 			{
 				return this.GetTable<Verb_Regular>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Declension> Declensions
+		{
+			get
+			{
+				return this.GetTable<Declension>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Noun_Regular> Noun_Regulars
+		{
+			get
+			{
+				return this.GetTable<Noun_Regular>();
 			}
 		}
 	}
@@ -517,6 +539,583 @@ namespace MRB.LanguageLearning.Data
 						this._ConjugationFK = default(int);
 					}
 					this.SendPropertyChanged("Conjugation");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Declension")]
+	public partial class Declension : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private string _Name;
+		
+		private string _Singular_Nominative_Ending;
+		
+		private string _Singular_Genitive_Ending;
+		
+		private string _Singular_Dative_Ending;
+		
+		private string _Singular_Accusative_Ending;
+		
+		private string _Singular_Ablative_Ending;
+		
+		private string _Singular_Vocative_Ending;
+		
+		private string _Plural_Nominative_Ending;
+		
+		private string _Plural_Genitive_Ending;
+		
+		private string _Plural_Dative_Ending;
+		
+		private string _Plural_Accusative_Ending;
+		
+		private string _Plural_Ablative_Ending;
+		
+		private string _Plural_Vocative_Ending;
+		
+		private EntitySet<Noun_Regular> _Noun_Regulars;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
+    partial void OnSingular_Nominative_EndingChanging(string value);
+    partial void OnSingular_Nominative_EndingChanged();
+    partial void OnSingular_Genitive_EndingChanging(string value);
+    partial void OnSingular_Genitive_EndingChanged();
+    partial void OnSingular_Dative_EndingChanging(string value);
+    partial void OnSingular_Dative_EndingChanged();
+    partial void OnSingular_Accusative_EndingChanging(string value);
+    partial void OnSingular_Accusative_EndingChanged();
+    partial void OnSingular_Ablative_EndingChanging(string value);
+    partial void OnSingular_Ablative_EndingChanged();
+    partial void OnSingular_Vocative_EndingChanging(string value);
+    partial void OnSingular_Vocative_EndingChanged();
+    partial void OnPlural_Nominative_EndingChanging(string value);
+    partial void OnPlural_Nominative_EndingChanged();
+    partial void OnPlural_Genitive_EndingChanging(string value);
+    partial void OnPlural_Genitive_EndingChanged();
+    partial void OnPlural_Dative_EndingChanging(string value);
+    partial void OnPlural_Dative_EndingChanged();
+    partial void OnPlural_Accusative_EndingChanging(string value);
+    partial void OnPlural_Accusative_EndingChanged();
+    partial void OnPlural_Ablative_EndingChanging(string value);
+    partial void OnPlural_Ablative_EndingChanged();
+    partial void OnPlural_Vocative_EndingChanging(string value);
+    partial void OnPlural_Vocative_EndingChanged();
+    #endregion
+		
+		public Declension()
+		{
+			this._Noun_Regulars = new EntitySet<Noun_Regular>(new Action<Noun_Regular>(this.attach_Noun_Regulars), new Action<Noun_Regular>(this.detach_Noun_Regulars));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this.OnNameChanging(value);
+					this.SendPropertyChanging();
+					this._Name = value;
+					this.SendPropertyChanged("Name");
+					this.OnNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Singular_Nominative_Ending", DbType="NVarChar(10) NOT NULL", CanBeNull=false)]
+		public string Singular_Nominative_Ending
+		{
+			get
+			{
+				return this._Singular_Nominative_Ending;
+			}
+			set
+			{
+				if ((this._Singular_Nominative_Ending != value))
+				{
+					this.OnSingular_Nominative_EndingChanging(value);
+					this.SendPropertyChanging();
+					this._Singular_Nominative_Ending = value;
+					this.SendPropertyChanged("Singular_Nominative_Ending");
+					this.OnSingular_Nominative_EndingChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Singular_Genitive_Ending", DbType="NVarChar(10) NOT NULL", CanBeNull=false)]
+		public string Singular_Genitive_Ending
+		{
+			get
+			{
+				return this._Singular_Genitive_Ending;
+			}
+			set
+			{
+				if ((this._Singular_Genitive_Ending != value))
+				{
+					this.OnSingular_Genitive_EndingChanging(value);
+					this.SendPropertyChanging();
+					this._Singular_Genitive_Ending = value;
+					this.SendPropertyChanged("Singular_Genitive_Ending");
+					this.OnSingular_Genitive_EndingChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Singular_Dative_Ending", DbType="NVarChar(10) NOT NULL", CanBeNull=false)]
+		public string Singular_Dative_Ending
+		{
+			get
+			{
+				return this._Singular_Dative_Ending;
+			}
+			set
+			{
+				if ((this._Singular_Dative_Ending != value))
+				{
+					this.OnSingular_Dative_EndingChanging(value);
+					this.SendPropertyChanging();
+					this._Singular_Dative_Ending = value;
+					this.SendPropertyChanged("Singular_Dative_Ending");
+					this.OnSingular_Dative_EndingChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Singular_Accusative_Ending", DbType="NVarChar(10) NOT NULL", CanBeNull=false)]
+		public string Singular_Accusative_Ending
+		{
+			get
+			{
+				return this._Singular_Accusative_Ending;
+			}
+			set
+			{
+				if ((this._Singular_Accusative_Ending != value))
+				{
+					this.OnSingular_Accusative_EndingChanging(value);
+					this.SendPropertyChanging();
+					this._Singular_Accusative_Ending = value;
+					this.SendPropertyChanged("Singular_Accusative_Ending");
+					this.OnSingular_Accusative_EndingChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Singular_Ablative_Ending", DbType="NVarChar(10) NOT NULL", CanBeNull=false)]
+		public string Singular_Ablative_Ending
+		{
+			get
+			{
+				return this._Singular_Ablative_Ending;
+			}
+			set
+			{
+				if ((this._Singular_Ablative_Ending != value))
+				{
+					this.OnSingular_Ablative_EndingChanging(value);
+					this.SendPropertyChanging();
+					this._Singular_Ablative_Ending = value;
+					this.SendPropertyChanged("Singular_Ablative_Ending");
+					this.OnSingular_Ablative_EndingChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Singular_Vocative_Ending", DbType="NVarChar(10) NOT NULL", CanBeNull=false)]
+		public string Singular_Vocative_Ending
+		{
+			get
+			{
+				return this._Singular_Vocative_Ending;
+			}
+			set
+			{
+				if ((this._Singular_Vocative_Ending != value))
+				{
+					this.OnSingular_Vocative_EndingChanging(value);
+					this.SendPropertyChanging();
+					this._Singular_Vocative_Ending = value;
+					this.SendPropertyChanged("Singular_Vocative_Ending");
+					this.OnSingular_Vocative_EndingChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Plural_Nominative_Ending", DbType="NVarChar(10) NOT NULL", CanBeNull=false)]
+		public string Plural_Nominative_Ending
+		{
+			get
+			{
+				return this._Plural_Nominative_Ending;
+			}
+			set
+			{
+				if ((this._Plural_Nominative_Ending != value))
+				{
+					this.OnPlural_Nominative_EndingChanging(value);
+					this.SendPropertyChanging();
+					this._Plural_Nominative_Ending = value;
+					this.SendPropertyChanged("Plural_Nominative_Ending");
+					this.OnPlural_Nominative_EndingChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Plural_Genitive_Ending", DbType="NVarChar(10) NOT NULL", CanBeNull=false)]
+		public string Plural_Genitive_Ending
+		{
+			get
+			{
+				return this._Plural_Genitive_Ending;
+			}
+			set
+			{
+				if ((this._Plural_Genitive_Ending != value))
+				{
+					this.OnPlural_Genitive_EndingChanging(value);
+					this.SendPropertyChanging();
+					this._Plural_Genitive_Ending = value;
+					this.SendPropertyChanged("Plural_Genitive_Ending");
+					this.OnPlural_Genitive_EndingChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Plural_Dative_Ending", DbType="NVarChar(10) NOT NULL", CanBeNull=false)]
+		public string Plural_Dative_Ending
+		{
+			get
+			{
+				return this._Plural_Dative_Ending;
+			}
+			set
+			{
+				if ((this._Plural_Dative_Ending != value))
+				{
+					this.OnPlural_Dative_EndingChanging(value);
+					this.SendPropertyChanging();
+					this._Plural_Dative_Ending = value;
+					this.SendPropertyChanged("Plural_Dative_Ending");
+					this.OnPlural_Dative_EndingChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Plural_Accusative_Ending", DbType="NVarChar(10) NOT NULL", CanBeNull=false)]
+		public string Plural_Accusative_Ending
+		{
+			get
+			{
+				return this._Plural_Accusative_Ending;
+			}
+			set
+			{
+				if ((this._Plural_Accusative_Ending != value))
+				{
+					this.OnPlural_Accusative_EndingChanging(value);
+					this.SendPropertyChanging();
+					this._Plural_Accusative_Ending = value;
+					this.SendPropertyChanged("Plural_Accusative_Ending");
+					this.OnPlural_Accusative_EndingChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Plural_Ablative_Ending", DbType="NVarChar(10) NOT NULL", CanBeNull=false)]
+		public string Plural_Ablative_Ending
+		{
+			get
+			{
+				return this._Plural_Ablative_Ending;
+			}
+			set
+			{
+				if ((this._Plural_Ablative_Ending != value))
+				{
+					this.OnPlural_Ablative_EndingChanging(value);
+					this.SendPropertyChanging();
+					this._Plural_Ablative_Ending = value;
+					this.SendPropertyChanged("Plural_Ablative_Ending");
+					this.OnPlural_Ablative_EndingChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Plural_Vocative_Ending", DbType="NVarChar(10) NOT NULL", CanBeNull=false)]
+		public string Plural_Vocative_Ending
+		{
+			get
+			{
+				return this._Plural_Vocative_Ending;
+			}
+			set
+			{
+				if ((this._Plural_Vocative_Ending != value))
+				{
+					this.OnPlural_Vocative_EndingChanging(value);
+					this.SendPropertyChanging();
+					this._Plural_Vocative_Ending = value;
+					this.SendPropertyChanged("Plural_Vocative_Ending");
+					this.OnPlural_Vocative_EndingChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Declension_Noun_Regular", Storage="_Noun_Regulars", ThisKey="Id", OtherKey="DeclensionFK")]
+		public EntitySet<Noun_Regular> Noun_Regulars
+		{
+			get
+			{
+				return this._Noun_Regulars;
+			}
+			set
+			{
+				this._Noun_Regulars.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Noun_Regulars(Noun_Regular entity)
+		{
+			this.SendPropertyChanging();
+			entity.Declension = this;
+		}
+		
+		private void detach_Noun_Regulars(Noun_Regular entity)
+		{
+			this.SendPropertyChanging();
+			entity.Declension = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Noun_Regular")]
+	public partial class Noun_Regular : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private string _Root;
+		
+		private int _DeclensionFK;
+		
+		private string _EnglishDefinition;
+		
+		private EntityRef<Declension> _Declension;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnRootChanging(string value);
+    partial void OnRootChanged();
+    partial void OnDeclensionFKChanging(int value);
+    partial void OnDeclensionFKChanged();
+    partial void OnEnglishDefinitionChanging(string value);
+    partial void OnEnglishDefinitionChanged();
+    #endregion
+		
+		public Noun_Regular()
+		{
+			this._Declension = default(EntityRef<Declension>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Root", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Root
+		{
+			get
+			{
+				return this._Root;
+			}
+			set
+			{
+				if ((this._Root != value))
+				{
+					this.OnRootChanging(value);
+					this.SendPropertyChanging();
+					this._Root = value;
+					this.SendPropertyChanged("Root");
+					this.OnRootChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DeclensionFK", DbType="Int NOT NULL")]
+		public int DeclensionFK
+		{
+			get
+			{
+				return this._DeclensionFK;
+			}
+			set
+			{
+				if ((this._DeclensionFK != value))
+				{
+					if (this._Declension.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnDeclensionFKChanging(value);
+					this.SendPropertyChanging();
+					this._DeclensionFK = value;
+					this.SendPropertyChanged("DeclensionFK");
+					this.OnDeclensionFKChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EnglishDefinition", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string EnglishDefinition
+		{
+			get
+			{
+				return this._EnglishDefinition;
+			}
+			set
+			{
+				if ((this._EnglishDefinition != value))
+				{
+					this.OnEnglishDefinitionChanging(value);
+					this.SendPropertyChanging();
+					this._EnglishDefinition = value;
+					this.SendPropertyChanged("EnglishDefinition");
+					this.OnEnglishDefinitionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Declension_Noun_Regular", Storage="_Declension", ThisKey="DeclensionFK", OtherKey="Id", IsForeignKey=true)]
+		public Declension Declension
+		{
+			get
+			{
+				return this._Declension.Entity;
+			}
+			set
+			{
+				Declension previousValue = this._Declension.Entity;
+				if (((previousValue != value) 
+							|| (this._Declension.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Declension.Entity = null;
+						previousValue.Noun_Regulars.Remove(this);
+					}
+					this._Declension.Entity = value;
+					if ((value != null))
+					{
+						value.Noun_Regulars.Add(this);
+						this._DeclensionFK = value.Id;
+					}
+					else
+					{
+						this._DeclensionFK = default(int);
+					}
+					this.SendPropertyChanged("Declension");
 				}
 			}
 		}

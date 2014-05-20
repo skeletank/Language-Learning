@@ -23,4 +23,32 @@
       <Association Name="Conjugation_Verb_Regular" Member="Conjugation" ThisKey="ConjugationFK" OtherKey="Id" Type="Conjugation" IsForeignKey="true" />
     </Type>
   </Table>
+  <Table Name="dbo.Declension" Member="Declensions">
+    <Type Name="Declension">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Singular_Nominative_Ending" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Singular_Genitive_Ending" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Singular_Dative_Ending" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Singular_Accusative_Ending" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Singular_Ablative_Ending" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Singular_Vocative_Ending" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Plural_Nominative_Ending" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Plural_Genitive_Ending" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Plural_Dative_Ending" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Plural_Accusative_Ending" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Plural_Ablative_Ending" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Plural_Vocative_Ending" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Association Name="Declension_Noun_Regular" Member="Noun_Regulars" ThisKey="Id" OtherKey="DeclensionFK" Type="Noun_Regular" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Noun_Regular" Member="Noun_Regulars">
+    <Type Name="Noun_Regular">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Root" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DeclensionFK" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="EnglishDefinition" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Declension_Noun_Regular" Member="Declension" ThisKey="DeclensionFK" OtherKey="Id" Type="Declension" IsForeignKey="true" />
+    </Type>
+  </Table>
 </Database>

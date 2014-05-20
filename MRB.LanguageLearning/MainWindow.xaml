@@ -14,6 +14,11 @@
                     <Controls:VerbConjugationControl/>
                 </Grid>
             </TabItem>
+            <TabItem Header="Noun Vocab">
+                <Grid Background="#FFE5E5E5">
+                    <Controls:NounVocabControl />
+                </Grid>
+            </TabItem>
         </TabControl>
 
     </Grid>

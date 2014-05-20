@@ -13,10 +13,11 @@ namespace MRB.LanguageLearning
     {
         #region Fields
 
-        private const int MinimumVerbTries = 2;
+        private const int MinimumVocabTries = 2;
 
         private LanguageLearningDataContext _dataContext;
         private Dictionary<Verb_Regular, VerbStatistics> _verbSuccessRates = new Dictionary<Verb_Regular, VerbStatistics>();
+        private Dictionary<Noun_Regular, NounStatistics> _nounSuccessRates = new Dictionary<Noun_Regular, NounStatistics>();
 
         #endregion
 
@@ -30,6 +31,11 @@ namespace MRB.LanguageLearning
 
             foreach (Verb_Regular verb in regularVerbs)
                 _verbSuccessRates.Add(verb, new VerbStatistics());
+
+            Table<Noun_Regular> regularNouns = _dataContext.Noun_Regulars;
+
+            foreach (Noun_Regular noun in regularNouns)
+                _nounSuccessRates.Add(noun, new NounStatistics());
         }
 
         #endregion
@@ -45,6 +51,15 @@ namespace MRB.LanguageLearning
                 statistics.NumberOfCorrectGuesses++;
         }
 
+        public void UpdateNounSuccessRate(Noun_Regular regularNoun, bool isCorrect)
+        {
+            NounStatistics statistics = _nounSuccessRates[regularNoun];
+            statistics.NumberOfGuesses++;
+
+            if (isCorrect)
+                statistics.NumberOfCorrectGuesses++;
+        }
+
         public Verb_Regular GetRandomVerb(int? conjugationId = null)
         {
             List<Verb_Regular> verbStudyPool = new List<Verb_Regular>();
@@ -52,7 +67,7 @@ namespace MRB.LanguageLearning
             foreach (var verbSuccessRate in _verbSuccessRates.Where(vsr => conjugationId == null || vsr.Key.ConjugationFK == conjugationId))
             {
                 VerbStatistics statistics = verbSuccessRate.Value;
-                int probabilityOfVerb = 100 -  (statistics.NumberOfGuesses >= 2 ? statistics.PercentCorrect : 0);
+                int probabilityOfVerb = 100 - (statistics.NumberOfGuesses >= MinimumVocabTries ? statistics.PercentCorrect : 0);
 
                 for (int i = 0; i < probabilityOfVerb; i++)
                     verbStudyPool.Add(verbSuccessRate.Key);
@@ -69,9 +84,38 @@ namespace MRB.LanguageLearning
             return regularVerbs.Skip(randomVerbIndex).FirstOrDefault();
         }
 
+        public Noun_Regular GetRandomNoun(int? declensionId = null)
+        {
+            List<Noun_Regular> nounStudyPool = new List<Noun_Regular>();
+
+            foreach (var nounSuccessRate in _nounSuccessRates.Where(vsr => declensionId == null || vsr.Key.DeclensionFK == declensionId))
+            {
+                NounStatistics statistics = nounSuccessRate.Value;
+                int probabilityOfVerb = 100 - (statistics.NumberOfGuesses >= MinimumVocabTries ? statistics.PercentCorrect : 0);
+
+                for (int i = 0; i < probabilityOfVerb; i++)
+                    nounStudyPool.Add(nounSuccessRate.Key);
+            }
+
+            IEnumerable<Noun_Regular> regularVerbs = nounStudyPool;
+
+            if (declensionId != null)
+                regularVerbs = regularVerbs.Where(rv => rv.DeclensionFK == declensionId);
+
+            Random random = new Random();
+            int randomNounIndex = random.Next(regularVerbs.Count());
+
+            return regularVerbs.Skip(randomNounIndex).FirstOrDefault();
+        }
+
         public IEnumerable<Conjugation> GetAllConjugations()
         {
             return _dataContext.Conjugations;
+        }
+
+        public IEnumerable<Declension> GetAllDeclensions()
+        {
+            return _dataContext.Declensions;
         }
 
         #endregion
