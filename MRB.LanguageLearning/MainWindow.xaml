@@ -4,19 +4,14 @@
         Title="MRB Language Learning - Latin" Height="350" Width="512">
     <Grid>
         <TabControl HorizontalAlignment="Left" Height="300" VerticalAlignment="Top" Width="486" Margin="10,10,0,0">
-            <TabItem Header="Verb Vocab">
+            <TabItem Header="Vocab" IsSelected="True">
                 <Grid Background="#FFE5E5E5">
-                    <Controls:VerbVocabControl />
+                    <Controls:VocabControl />
                 </Grid>
             </TabItem>
             <TabItem Header="Conjugation">
                 <Grid Background="#FFE5E5E5">
                     <Controls:VerbConjugationControl/>
-                </Grid>
-            </TabItem>
-            <TabItem Header="Noun Vocab">
-                <Grid Background="#FFE5E5E5">
-                    <Controls:NounVocabControl />
                 </Grid>
             </TabItem>
         </TabControl>

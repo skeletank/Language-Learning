@@ -56,9 +56,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LanguageLearning.cs">
-      <DependentUpon>LanguageLearning.dbml</DependentUpon>
-    </Compile>
+    <Compile Include="Entities\NounVocab.cs" />
+    <Compile Include="Entities\VerbVocab.cs" />
+    <Compile Include="Entities\VocabItem.cs" />
+    <Compile Include="Interfaces\IVocabItem.cs" />
+    <Compile Include="Entities\VocabStudyGroup.cs" />
+    <Compile Include="DatabaseManager.cs" />
     <Compile Include="LanguageLearning.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -116,6 +119,7 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
