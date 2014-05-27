@@ -11,7 +11,8 @@ namespace MRB.LanguageLearning.Data.Entities
   {
     #region Fields
 
-    private int _numberOfGuesses = 0;
+    private const int MinimumCorrectVocabAnswers = 2;
+
     private int _numberOfCorrectGuesses = 0;
 
     #endregion
@@ -33,24 +34,14 @@ namespace MRB.LanguageLearning.Data.Entities
       get { return _numberOfCorrectGuesses; }
     }
 
-    public int PercentCorrect
+    public bool IsCompleted
     {
-      get
-      {
-        double percentCorrect = _numberOfGuesses == 0 ? 0 : _numberOfCorrectGuesses / _numberOfGuesses;
-        return ((int)Math.Round(percentCorrect)) * 100;
-      }
+      get { return _numberOfCorrectGuesses >= MinimumCorrectVocabAnswers; }
     }
 
     public void TallyCorrectAnswer()
     {
       _numberOfCorrectGuesses++;
-      _numberOfGuesses++;
-    }
-
-    public void TallyWrongAnswer()
-    {
-      _numberOfGuesses++;
     }
 
     #endregion

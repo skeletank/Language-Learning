@@ -33,6 +33,20 @@ namespace MRB.LanguageLearning.Data.Entities
       get { return _groupName; }
     }
 
+    public bool IsCompleted
+    {
+      get 
+      {
+        foreach(IVocabItem vocabItem in _vocabItems)
+        {
+          if (!vocabItem.IsCompleted)
+            return false;
+        }
+
+        return true;
+      }
+    }
+
     public IEnumerable<IVocabItem> VocabItems
     {
       get { return _vocabItems; }

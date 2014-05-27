@@ -110,6 +110,15 @@ namespace MRB.LanguageLearning.Controls
     {
       VocabStudyGroup selectedStudyGroup = (VocabStudyGroup)StudyGroupComboBox.SelectedItem;
 
+      if(selectedStudyGroup.IsCompleted)
+      {
+        MessageBox.Show("You have completed this study group", "Study Group Completed", MessageBoxButton.OK, MessageBoxImage.Information);
+
+        StudyGroupComboBox.SelectedIndex = 0;
+
+        selectedStudyGroup = (VocabStudyGroup)StudyGroupComboBox.SelectedItem;
+      }
+
       _currentVocabItem = _databaseManager.GetRandomVocab(selectedStudyGroup);
 
       ForeignVocabLabel.Content = _currentVocabItem.ForeignLanguageDefinition;

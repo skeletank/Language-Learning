@@ -10,10 +10,9 @@ namespace MRB.LanguageLearning.Data.Interfaces
   {
     string KnownLanguageDefinition { get; }
     string ForeignLanguageDefinition { get; }
-    int PercentCorrect { get; }
     int NumberOfCorrectAnswers { get; }
+    bool IsCompleted { get; }
 
     void TallyCorrectAnswer();
-    void TallyWrongAnswer();
   }
 }

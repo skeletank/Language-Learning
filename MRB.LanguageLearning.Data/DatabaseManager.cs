@@ -14,7 +14,7 @@ namespace MRB.LanguageLearning.Data
   {
     #region Fields
 
-    private const int MinimumVocabTries = 2;
+    private const int MinimumCorrectVocabAnswers = 2;
     private const int MaximumStudyGroupSize = 15;
 
     private LanguageLearningDataContext _dataContext;
@@ -43,9 +43,7 @@ namespace MRB.LanguageLearning.Data
 
       foreach(IVocabItem vocabItem in selectedStudyGroup.VocabItems)
       {
-        int probabilityOfVocab = 100 - (vocabItem.NumberOfCorrectAnswers >= MinimumVocabTries ? vocabItem.PercentCorrect : 0);
-
-        for (int i = 0; i < probabilityOfVocab; i++)
+        if(!vocabItem.IsCompleted)
           studyPool.Add(vocabItem);
       }
 
@@ -59,8 +57,6 @@ namespace MRB.LanguageLearning.Data
     {
       if (isCorrect)
         vocabItem.TallyCorrectAnswer();
-      else
-        vocabItem.TallyWrongAnswer();
     }
 
     public Verb_Regular GetRandomVerb()
