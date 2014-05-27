@@ -57,11 +57,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\NounVocab.cs" />
+    <Compile Include="Entities\VerbTense.cs" />
     <Compile Include="Entities\VerbVocab.cs" />
     <Compile Include="Entities\VocabItem.cs" />
     <Compile Include="Interfaces\IVocabItem.cs" />
     <Compile Include="Entities\VocabStudyGroup.cs" />
     <Compile Include="DatabaseManager.cs" />
+    <Compile Include="LanguageLearning.cs">
+      <DependentUpon>LanguageLearning.dbml</DependentUpon>
+    </Compile>
     <Compile Include="LanguageLearning.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

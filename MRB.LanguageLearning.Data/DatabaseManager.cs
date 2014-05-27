@@ -95,6 +95,15 @@ namespace MRB.LanguageLearning.Data
       return studyGroups;
     }
 
+    public VerbTense GetRandomVerbTense()
+    {
+      Array values = Enum.GetValues(typeof(VerbTense));
+      Random random = new Random();
+      VerbTense randomVerbTense = (VerbTense)values.GetValue(random.Next(values.Length));
+
+      return randomVerbTense;
+    }
+
     #endregion
   }
 }
