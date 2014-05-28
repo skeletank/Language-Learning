@@ -1,20 +1,20 @@
 ﻿<Window xmlns:Controls="clr-namespace:MRB.LanguageLearning.Controls"  x:Class="MRB.LanguageLearning.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MRB Language Learning - Latin" Height="350" Width="512">
-    <Grid>
-        <TabControl HorizontalAlignment="Left" Height="300" VerticalAlignment="Top" Width="486" Margin="10,10,0,0">
-            <TabItem Header="Vocab" IsSelected="True">
-                <Grid Background="#FFE5E5E5">
-                    <Controls:VocabControl />
-                </Grid>
-            </TabItem>
-            <TabItem Header="Conjugation">
-                <Grid Background="#FFE5E5E5">
-                    <Controls:VerbConjugationControl/>
-                </Grid>
-            </TabItem>
-        </TabControl>
-
-    </Grid>
+        Title="MRB Language Learning - Latin"
+        SizeToContent="WidthAndHeight">
+  <Grid>
+    <TabControl HorizontalAlignment="Left" Height="300" VerticalAlignment="Top" Width="486" Margin="10,10,10,10">
+      <TabItem Header="Vocab" IsSelected="True">
+        <Grid Background="#FFE5E5E5">
+          <Controls:VocabControl />
+        </Grid>
+      </TabItem>
+      <TabItem Header="Conjugation">
+        <Grid Background="#FFE5E5E5">
+          <Controls:VerbConjugationControl/>
+        </Grid>
+      </TabItem>
+    </TabControl>
+  </Grid>
 </Window>
