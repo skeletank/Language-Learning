@@ -1,0 +1,16 @@
+﻿<UserControl x:Class="MRB.LanguageLearning.Controls.NounDeclensionControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="270" d:DesignWidth="475">
+    <Grid>
+        <Button x:Name="Declension_NewNounButton" Content="New Noun" HorizontalAlignment="Left" Margin="10,236,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2" Click="Declension_NewNounButton_Click"/>
+        <Button x:Name="Declension_VerifyNounButton" Content="Verify" HorizontalAlignment="Left" Margin="390,236,0,0" VerticalAlignment="Top" Width="75" Click="Declension_VerifyNounButton_Click"/>
+        <Label x:Name="NounLabel" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Width="455" FontSize="20" Margin="10,10,10,222" Height="38"/>
+        <TextBox x:Name="GuessDeclensionTextBox" HorizontalAlignment="Left" Height="36" Margin="10,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="233" FontSize="20" KeyUp="GuessDeclensionTextBox_KeyUp" />
+        <Label x:Name="CorrectDeclensionLabel" Content="" Foreground="Blue" HorizontalAlignment="Center" VerticalAlignment="Center" Width="233" FontSize="20" Margin="10,137,232,80" Height="53"/>
+        <Label x:Name="EndingLabel" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Width="455" FontSize="20" Margin="10,53,10,179" Height="38"/>
+    </Grid>
+</UserControl>

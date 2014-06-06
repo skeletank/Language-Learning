@@ -3,18 +3,23 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MRB Language Learning - Latin"
         SizeToContent="WidthAndHeight">
-  <Grid>
-    <TabControl HorizontalAlignment="Left" Height="300" VerticalAlignment="Top" Width="486" Margin="10,10,10,10">
-      <TabItem Header="Vocab" IsSelected="True">
-        <Grid Background="#FFE5E5E5">
-          <Controls:VocabControl />
-        </Grid>
-      </TabItem>
-      <TabItem Header="Conjugation">
-        <Grid Background="#FFE5E5E5">
-          <Controls:VerbConjugationControl/>
-        </Grid>
-      </TabItem>
-    </TabControl>
-  </Grid>
+    <Grid>
+        <TabControl HorizontalAlignment="Left" Height="300" VerticalAlignment="Top" Width="486" Margin="10,10,10,10">
+            <TabItem Header="Vocab" IsSelected="True">
+                <Grid Background="#FFE5E5E5">
+                    <Controls:VocabControl />
+                </Grid>
+            </TabItem>
+            <TabItem Header="Conjugation">
+                <Grid Background="#FFE5E5E5">
+                    <Controls:VerbConjugationControl/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Declension" HorizontalAlignment="Left" Height="20" Width="74">
+                <Grid Background="#FFE5E5E5">
+                    <Controls:NounDeclensionControl/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
 </Window>

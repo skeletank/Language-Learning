@@ -10,6 +10,9 @@ using MRB.LanguageLearning.Data.Interfaces;
 using MRB.LanguageLearning.Data.Entities.Verb;
 using MRB.LanguageLearning.Data.Entities.Noun;
 
+using VerbEnding = MRB.LanguageLearning.Data.Entities.Verb.Ending;
+using NounEnding = MRB.LanguageLearning.Data.Entities.Noun.Ending;
+
 namespace MRB.LanguageLearning.Data
 {
   public class DatabaseManager
@@ -71,6 +74,16 @@ namespace MRB.LanguageLearning.Data
       return verbs.Skip(randomVerbIndex).FirstOrDefault();
     }
 
+    public Noun_Regular GetRandomNoun()
+    {
+      IEnumerable<Noun_Regular> nouns = _dataContext.Noun_Regulars;
+
+      Random random = new Random();
+      int randomNounIndex = random.Next(nouns.Count());
+
+      return nouns.Skip(randomNounIndex).FirstOrDefault();
+    }
+
     public IEnumerable<VocabStudyGroup> GetVocabStudyGroups()
     {
       List<VocabStudyGroup> studyGroups = new List<VocabStudyGroup>();
@@ -97,9 +110,14 @@ namespace MRB.LanguageLearning.Data
       return studyGroups;
     }
 
-    public Ending GetRandomVerbEnding()
+    public VerbEnding GetRandomVerbEnding()
     {
-      return Ending.GetEndingAtRandom();
+      return VerbEnding.GetEndingAtRandom();
+    }
+
+    public NounEnding GetRandomNounEnding()
+    {
+      return NounEnding.GetEndingAtRandom();
     }
 
     #endregion

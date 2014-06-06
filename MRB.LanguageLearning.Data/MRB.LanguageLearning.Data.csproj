@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="Entities\Noun\Characteristics\Case.cs" />
     <Compile Include="Entities\Noun\Characteristics\Number.cs" />
+    <Compile Include="Entities\Noun\Ending.cs" />
     <Compile Include="Entities\Noun\NounVocab.cs" />
     <Compile Include="Entities\Verb\Characteristics\Voice.cs" />
     <Compile Include="Entities\Verb\Characteristics\Tense.cs" />
