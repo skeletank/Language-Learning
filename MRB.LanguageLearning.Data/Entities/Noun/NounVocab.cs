@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MRB.LanguageLearning.Data.Entities
+namespace MRB.LanguageLearning.Data.Entities.Noun
 {
   public class NounVocab : VocabItem
   {

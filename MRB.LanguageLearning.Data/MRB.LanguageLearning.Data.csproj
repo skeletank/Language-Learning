@@ -56,9 +56,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\NounVocab.cs" />
-    <Compile Include="Entities\VerbTense.cs" />
-    <Compile Include="Entities\VerbVocab.cs" />
+    <Compile Include="Entities\Noun\Characteristics\Case.cs" />
+    <Compile Include="Entities\Noun\Characteristics\Number.cs" />
+    <Compile Include="Entities\Noun\NounVocab.cs" />
+    <Compile Include="Entities\Verb\Characteristics\Voice.cs" />
+    <Compile Include="Entities\Verb\Characteristics\Tense.cs" />
+    <Compile Include="Entities\Verb\Characteristics\Number.cs" />
+    <Compile Include="Entities\Verb\Characteristics\Person.cs" />
+    <Compile Include="Entities\Verb\Ending.cs" />
+    <Compile Include="Entities\Verb\VerbVocab.cs" />
     <Compile Include="Entities\VocabItem.cs" />
     <Compile Include="Interfaces\IVocabItem.cs" />
     <Compile Include="Entities\VocabStudyGroup.cs" />

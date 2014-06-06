@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using System.Data.Linq;
 using MRB.LanguageLearning.Data.Entities;
 using MRB.LanguageLearning.Data.Interfaces;
+using MRB.LanguageLearning.Data.Entities.Verb;
+using MRB.LanguageLearning.Data.Entities.Noun;
 
 namespace MRB.LanguageLearning.Data
 {
@@ -95,13 +97,9 @@ namespace MRB.LanguageLearning.Data
       return studyGroups;
     }
 
-    public VerbTense GetRandomVerbTense()
+    public Ending GetRandomVerbEnding()
     {
-      Array values = Enum.GetValues(typeof(VerbTense));
-      Random random = new Random();
-      VerbTense randomVerbTense = (VerbTense)values.GetValue(random.Next(values.Length));
-
-      return randomVerbTense;
+      return Ending.GetEndingAtRandom();
     }
 
     #endregion

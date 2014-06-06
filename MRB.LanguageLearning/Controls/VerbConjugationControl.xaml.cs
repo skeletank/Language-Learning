@@ -1,5 +1,6 @@
 ﻿using MRB.LanguageLearning.Data;
 using MRB.LanguageLearning.Data.Entities;
+using MRB.LanguageLearning.Data.Entities.Verb;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,7 +28,7 @@ namespace MRB.LanguageLearning.Controls
 
     private DatabaseManager _databaseManager;
     private Verb_Regular _currentVerb;
-    private VerbTense _verbTense;
+    private Ending  _ending;
 
     private bool _hasBeenVerified = false;
 
@@ -78,13 +79,14 @@ namespace MRB.LanguageLearning.Controls
 
     private void ResetWithNewVerb()
     {
-      _verbTense = _databaseManager.GetRandomVerbTense();
+      _ending = _databaseManager.GetRandomVerbEnding();
       _currentVerb = _databaseManager.GetRandomVerb();
 
       GuessConjugationTextBox.Text = String.Empty;
       GuessConjugationTextBox.Foreground = Brushes.Black;
 
-      RootAndTenseLabel.Content = _currentVerb.Infinitive + " - " + AddSpacesToSentence(Enum.GetName(typeof(VerbTense), _verbTense), true);
+      VerbLabel.Content = _currentVerb.Infinitive;
+      EndingLabel.Content = _ending.Display;
 
       CorrectConjugationLabel.Content = String.Empty;
 
@@ -93,7 +95,7 @@ namespace MRB.LanguageLearning.Controls
 
     private void VerifyConjugation()
     {
-      string correctConjugation = _currentVerb.Root + _currentVerb.GetVerbTenseEnding(_verbTense);
+      string correctConjugation = _currentVerb.Root + _currentVerb.GetVerbEnding(_ending);
 
       Encoding latinEncoding = Encoding.GetEncoding("Windows-1252");
 
@@ -113,25 +115,6 @@ namespace MRB.LanguageLearning.Controls
       Conjugation_VerifyVerbButton.IsEnabled = false;
 
       _hasBeenVerified = true;
-    }
-
-    private string AddSpacesToSentence(string text, bool preserveAcronyms)
-    {
-      if (String.IsNullOrWhiteSpace(text))
-        return String.Empty;
-
-      StringBuilder newText = new StringBuilder(text.Length * 2);
-      newText.Append(text[0]);
-
-      for (int i = 1; i < text.Length; i++)
-      {
-        if (char.IsUpper(text[i]) || char.IsNumber(text[i]))
-            newText.Append(' ');
-
-        newText.Append(text[i]);
-      }
-
-      return newText.ToString();
     }
 
     #endregion
