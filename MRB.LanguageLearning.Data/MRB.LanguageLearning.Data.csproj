@@ -60,6 +60,9 @@
     <Compile Include="Entities\Noun\Characteristics\Number.cs" />
     <Compile Include="Entities\Noun\Ending.cs" />
     <Compile Include="Entities\Noun\NounVocab.cs" />
+    <Compile Include="Entities\PersonalPronoun\Characteristics\Case.cs" />
+    <Compile Include="Entities\PersonalPronoun\Characteristics\Person.cs" />
+    <Compile Include="Entities\PersonalPronoun\Characteristics\Number.cs" />
     <Compile Include="Entities\Verb\Characteristics\Voice.cs" />
     <Compile Include="Entities\Verb\Characteristics\Tense.cs" />
     <Compile Include="Entities\Verb\Characteristics\Number.cs" />
