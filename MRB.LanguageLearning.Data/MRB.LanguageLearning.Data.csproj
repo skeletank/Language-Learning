@@ -56,19 +56,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\Noun\Characteristics\Case.cs" />
-    <Compile Include="Entities\Noun\Characteristics\Number.cs" />
-    <Compile Include="Entities\Noun\Ending.cs" />
-    <Compile Include="Entities\Noun\NounVocab.cs" />
-    <Compile Include="Entities\PersonalPronoun\Characteristics\Case.cs" />
-    <Compile Include="Entities\PersonalPronoun\Characteristics\Person.cs" />
-    <Compile Include="Entities\PersonalPronoun\Characteristics\Number.cs" />
-    <Compile Include="Entities\Verb\Characteristics\Voice.cs" />
-    <Compile Include="Entities\Verb\Characteristics\Tense.cs" />
-    <Compile Include="Entities\Verb\Characteristics\Number.cs" />
-    <Compile Include="Entities\Verb\Characteristics\Person.cs" />
-    <Compile Include="Entities\Verb\Ending.cs" />
-    <Compile Include="Entities\Verb\VerbVocab.cs" />
+    <Compile Include="Entities\Nouns\Characteristics\Case.cs" />
+    <Compile Include="Entities\Nouns\Characteristics\Number.cs" />
+    <Compile Include="Entities\Nouns\Ending.cs" />
+    <Compile Include="Entities\Nouns\NounVocab.cs" />
+    <Compile Include="Entities\PersonalPronouns\Characteristics\Case.cs" />
+    <Compile Include="Entities\PersonalPronouns\Characteristics\Person.cs" />
+    <Compile Include="Entities\PersonalPronouns\Characteristics\Number.cs" />
+    <Compile Include="Entities\PersonalPronouns\PersonalPronoun.cs" />
+    <Compile Include="Entities\Verbs\Characteristics\Voice.cs" />
+    <Compile Include="Entities\Verbs\Characteristics\Tense.cs" />
+    <Compile Include="Entities\Verbs\Characteristics\Number.cs" />
+    <Compile Include="Entities\Verbs\Characteristics\Person.cs" />
+    <Compile Include="Entities\Verbs\Ending.cs" />
+    <Compile Include="Entities\Verbs\VerbVocab.cs" />
     <Compile Include="Entities\VocabItem.cs" />
     <Compile Include="Interfaces\IVocabItem.cs" />
     <Compile Include="Entities\VocabStudyGroup.cs" />

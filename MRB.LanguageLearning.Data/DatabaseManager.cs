@@ -7,16 +7,17 @@ using System.Threading.Tasks;
 using System.Data.Linq;
 using MRB.LanguageLearning.Data.Entities;
 using MRB.LanguageLearning.Data.Interfaces;
-using MRB.LanguageLearning.Data.Entities.Verb;
-using MRB.LanguageLearning.Data.Entities.Noun;
+using MRB.LanguageLearning.Data.Entities.Verbs;
+using MRB.LanguageLearning.Data.Entities.Nouns;
 
-using VerbEnding = MRB.LanguageLearning.Data.Entities.Verb.Ending;
-using VerbNumber = MRB.LanguageLearning.Data.Entities.Verb.Characteristics.Number;
+using VerbEnding = MRB.LanguageLearning.Data.Entities.Verbs.Ending;
+using VerbNumber = MRB.LanguageLearning.Data.Entities.Verbs.Characteristics.Number;
 
-using NounEnding = MRB.LanguageLearning.Data.Entities.Noun.Ending;
-using NounNumber = MRB.LanguageLearning.Data.Entities.Noun.Characteristics.Number;
-using MRB.LanguageLearning.Data.Entities.Verb.Characteristics;
-using MRB.LanguageLearning.Data.Entities.Noun.Characteristics;
+using NounEnding = MRB.LanguageLearning.Data.Entities.Nouns.Ending;
+using NounNumber = MRB.LanguageLearning.Data.Entities.Nouns.Characteristics.Number;
+using MRB.LanguageLearning.Data.Entities.Verbs.Characteristics;
+using MRB.LanguageLearning.Data.Entities.Nouns.Characteristics;
+using MRB.LanguageLearning.Data.Entities.PersonalPronouns;
 
 namespace MRB.LanguageLearning.Data
 {
@@ -144,6 +145,13 @@ namespace MRB.LanguageLearning.Data
       NounNumber randomNumber = (NounNumber)numbers.GetValue(RandomNumberGenerator.Next(numbers.Length));
 
       return new NounEnding(randomNumber, randomCase);
+    }
+
+    public PersonalPronoun GetRandomPersonalPronoun()
+    {
+      int randomVerbIndex = RandomNumberGenerator.Next(PersonalPronoun.All.Count());
+
+      return PersonalPronoun.All.Skip(randomVerbIndex).FirstOrDefault();
     }
 
     #endregion

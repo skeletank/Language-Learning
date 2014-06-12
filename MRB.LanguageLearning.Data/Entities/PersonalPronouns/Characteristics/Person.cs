@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MRB.LanguageLearning.Data.Entities.Noun.Characteristics
+namespace MRB.LanguageLearning.Data.Entities.PersonalPronouns.Characteristics
 {
-  public enum Number
+  public enum Person
   {
-    Singular,
-    Plural
+    _1st,
+    _2nd
   }
 }

@@ -1,14 +1,14 @@
 using MRB.LanguageLearning.Data.Entities;
-using MRB.LanguageLearning.Data.Entities.Verb;
-using MRB.LanguageLearning.Data.Entities.Verb.Characteristics;
+using MRB.LanguageLearning.Data.Entities.Verbs;
+using MRB.LanguageLearning.Data.Entities.Verbs.Characteristics;
 using System;
 
-using VerbEnding = MRB.LanguageLearning.Data.Entities.Verb.Ending;
-using VerbNumber = MRB.LanguageLearning.Data.Entities.Verb.Characteristics.Number;
+using VerbEnding = MRB.LanguageLearning.Data.Entities.Verbs.Ending;
+using VerbNumber = MRB.LanguageLearning.Data.Entities.Verbs.Characteristics.Number;
 
-using NounEnding = MRB.LanguageLearning.Data.Entities.Noun.Ending;
-using NounNumber = MRB.LanguageLearning.Data.Entities.Noun.Characteristics.Number;
-using MRB.LanguageLearning.Data.Entities.Noun.Characteristics;
+using NounEnding = MRB.LanguageLearning.Data.Entities.Nouns.Ending;
+using NounNumber = MRB.LanguageLearning.Data.Entities.Nouns.Characteristics.Number;
+using MRB.LanguageLearning.Data.Entities.Nouns.Characteristics;
 
 namespace MRB.LanguageLearning.Data
 {

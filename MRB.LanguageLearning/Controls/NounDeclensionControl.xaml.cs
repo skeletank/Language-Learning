@@ -1,6 +1,6 @@
 ﻿using MRB.LanguageLearning.Data;
 using MRB.LanguageLearning.Data.Entities;
-using MRB.LanguageLearning.Data.Entities.Noun;
+using MRB.LanguageLearning.Data.Entities.Nouns;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

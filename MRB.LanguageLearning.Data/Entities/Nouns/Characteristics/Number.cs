@@ -4,12 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MRB.LanguageLearning.Data.Entities.Verb.Characteristics
+namespace MRB.LanguageLearning.Data.Entities.Nouns.Characteristics
 {
-  public enum Person
+  public enum Number
   {
-    _1st,
-    _2nd,
-    _3rd
+    Singular,
+    Plural
   }
 }

@@ -20,6 +20,11 @@
                     <Controls:NounDeclensionControl/>
                 </Grid>
             </TabItem>
+            <TabItem Header="Personal Pronouns" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="115" Margin="-2,-2,-56,0">
+                <Grid Background="#FFE5E5E5">
+                    <Controls:PersonalPronounVocabControl/>
+                </Grid>
+            </TabItem>
         </TabControl>
     </Grid>
 </Window>

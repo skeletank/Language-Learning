@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MRB.LanguageLearning.Data.Entities.Verb.Characteristics
+namespace MRB.LanguageLearning.Data.Entities.Verbs.Characteristics
 {
-  public enum Number
+  public enum Tense
   {
-    Singular,
-    Plural
+    Present
   }
 }

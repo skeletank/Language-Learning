@@ -1,11 +1,11 @@
-﻿using MRB.LanguageLearning.Data.Entities.Noun.Characteristics;
+﻿using MRB.LanguageLearning.Data.Entities.Nouns.Characteristics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MRB.LanguageLearning.Data.Entities.Noun
+namespace MRB.LanguageLearning.Data.Entities.Nouns
 {
   public class Ending
   {

@@ -60,6 +60,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Controls\PersonalPronounVocabControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Controls\VerbConjugationControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -78,6 +82,9 @@
     </Compile>
     <Compile Include="Controls\NounDeclensionControl.xaml.cs">
       <DependentUpon>NounDeclensionControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\PersonalPronounVocabControl.xaml.cs">
+      <DependentUpon>PersonalPronounVocabControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\VerbConjugationControl.xaml.cs">
       <DependentUpon>VerbConjugationControl.xaml</DependentUpon>
